@@ -52,3 +52,52 @@ class SmartPhone {
 
     }
 }
+----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+
+public class Main {
+    public static void main(String[] args) {
+
+        class Phone{
+            String serialNumber;
+            String model;
+            int weight;
+            int cost;
+
+            public Phone(String serialNumber, String model, int weight, int cost){
+                this.serialNumber = serialNumber;
+                this.model = model;
+                this.weight = weight;
+                this.cost = this.cost;
+            }
+
+            void receiveCall(){
+                String message = "Message!";
+                System.out.println(message);
+                return;
+            }
+            
+            class BabushkaPhone extends Phone {
+                public BabushkaPhone(String serialNumber, String model, int weight) {
+                    super(serialNumber, model, weight, cost);
+                    BabushkaPhone bp = new BabushkaPhone("21312312", "fgd32432fsd", 100);
+                    
+                    System.out.println("serialNumber" + bp.serialNumber + "model" + bp.model + bp.weight + "weight");
+                }
+            }
+            void getNumber(){
+                int number = 1234567;
+                System.out.println(number);
+                return;
+            }
+            class SmartPhone extends Phone {
+                public SmartPhone(String serialNumber, String model, int weight, int cost) {
+                    super(serialNumber, model, weight, cost);
+                    SmartPhone sp = new SmartPhone("21312312", "fgd32432fsd", 100, 1000);
+
+                    System.out.println(" serialNumber " + sp.serialNumber + " model " + sp.model + " weight " + sp.weight + " cost " + sp.cost);
+                }
+            }
+        }
+    }
+}
