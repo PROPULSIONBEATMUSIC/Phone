@@ -1,103 +1,99 @@
+//класс Phone
 //поля: serialNumber, model, weight
 //методы: вывод, receiveCall(String name), getNumber
 //конструктор: для всех параметров, для number и model
 //Классы: BabushkaPhone, SmartPhone
 //метод sendMessage для SmartPhone
 //переопределить метод receiveCall для бабушкафона
+
 //придумать и добавить по 3поля для BabushkaPhone, SmartPhone
 //также по 1 методу
 //создать объекты всех классов и повзаимодействовать
 
-class BabushkaPhone {
-    String serialNumber;
-    String model;
-    int weight;
-    int cost;
+    class Phone{
+        int serialNumber;
+        int model;
+        int weight;
 
-    public BabushkaPhone(String model, String serialNumber, int weight, int cost){
-        this.serialNumber = serialNumber;
-        this.model = model;
-        this.weight = weight;
-        this.cost = cost;
-    }
+        public void receiveCall(String name){
+            System.out.println("receiveCall");
+        }
 
-     public static void main(String[] args) {
-         BabushkaPhone BabushkaPhone = new BabushkaPhone("I3346ty", "102982857623", 100, 800);
-        System.out.println("Модель: " + BabushkaPhone.model + " Серийный номер: " + BabushkaPhone.serialNumber + " Вес: " + BabushkaPhone.weight + " Цена: " + BabushkaPhone.cost);
-     }
-}
+        public int getNumber() {
+            System.out.println(serialNumber);
+            return serialNumber;
+        }
 
-class SmartPhone {
-    String serialNumber;
-    String model;
-    int weight;
-    int cost;
+        public Phone(int serialNumber, int model, int weight) {
+            this.serialNumber = serialNumber;
+            this.model = model;
+            this.weight = weight;
+        }
 
-    public String sendMessage(String message){
-        String mess = " Со счета списаны все деньги ";
-        System.out.println(message);
-        return mess;
-    }
+        public void info(){
+            System.out.println("serialNumber: " + serialNumber + "\n" + "model: " + model + "\n" + "weight: " + weight);
+        }
 
-    public SmartPhone(String model, String serialNumber, int weight, int cost){
-        this.serialNumber = serialNumber;
-        this.model = model;
-        this.weight = weight;
-        this.cost = cost;
-    }
-
-    public static void main(String[] args) {
-        SmartPhone SmartPhone = new SmartPhone("I3346ty", "102982857623", 100, 2800000);
-        System.out.println("Модель: " + SmartPhone.model + " Серийный номер: " + SmartPhone.serialNumber + " Вес: " + SmartPhone.weight + " Цена: " + SmartPhone.cost);
-
-    }
-}
-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-
-
-public class Main {
-    public static void main(String[] args) {
-
-        class Phone{
-            String serialNumber;
-            String model;
-            int weight;
-            int cost;
-
-            public Phone(String serialNumber, String model, int weight, int cost){
-                this.serialNumber = serialNumber;
-                this.model = model;
-                this.weight = weight;
-                this.cost = this.cost;
-            }
-
-            void receiveCall(){
-                String message = "Message!";
-                System.out.println(message);
-                return;
-            }
-            
-            class BabushkaPhone extends Phone {
-                public BabushkaPhone(String serialNumber, String model, int weight) {
-                    super(serialNumber, model, weight, cost);
-                    BabushkaPhone bp = new BabushkaPhone("21312312", "fgd32432fsd", 100);
-                    
-                    System.out.println("serialNumber" + bp.serialNumber + "model" + bp.model + bp.weight + "weight");
-                }
-            }
-            void getNumber(){
-                int number = 1234567;
-                System.out.println(number);
-                return;
-            }
-            class SmartPhone extends Phone {
-                public SmartPhone(String serialNumber, String model, int weight, int cost) {
-                    super(serialNumber, model, weight, cost);
-                    SmartPhone sp = new SmartPhone("21312312", "fgd32432fsd", 100, 1000);
-
-                    System.out.println(" serialNumber " + sp.serialNumber + " model " + sp.model + " weight " + sp.weight + " cost " + sp.cost);
-                }
-            }
+        public static void main(String[] args) {
+            Phone justPhone = new Phone(123123, 333333, 100);
+            justPhone.getNumber();
+            justPhone.receiveCall("Babka");
+            justPhone.info();
         }
     }
-}
+
+    class BabushkaPhone extends Phone{
+        int cost;
+        int resolution;
+        String os;
+        public BabushkaPhone(int serialNumber, int model, int weight) {
+            super(serialNumber, model, weight);
+            this.cost = 1000;
+            this.resolution = 144;
+            this.os = "Apple";
+        }
+
+        @Override
+        public void receiveCall(String name) {
+            super.receiveCall(name);
+        }
+
+        @Override
+        public void info() {
+            super.info();
+            System.out.println("cost: " + cost + "\n" + "resolution: " + resolution + "\n" + "os: " + os);
+        }
+
+        public static void main(String[] args) {
+            BabushkaPhone Babka = new BabushkaPhone(1234, 8888, 1000);
+            Babka.receiveCall("Uncle dad");
+            Babka.info();
+        }
+    }
+    class SmartPhone extends Phone{
+        String fullTitle;
+        String overPrice;
+        String description;
+        public SmartPhone(int serialNumber, int model, int weight) {
+            super(serialNumber, model, weight);
+            this.fullTitle = "Super_Mega_Nano_Ultra_Giper_Turbo_Extra_Phone";
+            this.overPrice = "140%";
+            this.description = "Smart phone for retarded peoples!";
+        }
+
+        public void sendMessage() {
+            System.out.println("sendMessage");
+        }
+
+        @Override
+        public void info() {
+            super.info();
+            System.out.println("fullTitle: " + fullTitle + "\n" + "overPrice: " + overPrice + "\n" + "description: " + description);
+        }
+
+        public static void main(String[] args) {
+            SmartPhone retardedPhone = new SmartPhone(1243756, 99999, 1);
+            retardedPhone.sendMessage();
+            retardedPhone.info();
+        }
+    }
