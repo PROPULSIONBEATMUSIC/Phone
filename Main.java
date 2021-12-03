@@ -78,7 +78,7 @@
             super(serialNumber, model, weight);
             this.fullTitle = "Super_Mega_Nano_Ultra_Giper_Turbo_Extra_Phone";
             this.overPrice = "140%";
-            this.description = "Smart phone for retarded peoples!";
+            this.description = "Smart phone for retarded people!";
         }
 
         public void sendMessage() {
