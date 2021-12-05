@@ -34,23 +34,17 @@
             System.out.println("serialNumber: " + serialNumber + "\n" + "model: " + model + "\n" + "weight: " + weight);
         }
 
-        public static void main(String[] args) {
-            Phone justPhone = new Phone(123123, 333333, 100);
-            justPhone.getNumber();
-            justPhone.receiveCall("Babka");
-            justPhone.info();
-        }
     }
 
     class BabushkaPhone extends Phone{
         int cost;
         int resolution;
         String os;
-        public BabushkaPhone(int serialNumber, int model, int weight) {
+        public BabushkaPhone(int serialNumber, int model, int weight, int cost, int resolution, String os) {
             super(serialNumber, model, weight);
-            this.cost = 1000;
-            this.resolution = 144;
-            this.os = "Apple";
+            this.cost = cost;
+            this.resolution = resolution;
+            this.os = os;
         }
 
         @Override
@@ -64,11 +58,6 @@
             System.out.println("cost: " + cost + "\n" + "resolution: " + resolution + "\n" + "os: " + os);
         }
 
-        public static void main(String[] args) {
-            BabushkaPhone Babka = new BabushkaPhone(1234, 8888, 1000);
-            Babka.receiveCall("Uncle dad");
-            Babka.info();
-        }
     }
     class SmartPhone extends Phone{
         String fullTitle;
@@ -78,7 +67,7 @@
             super(serialNumber, model, weight);
             this.fullTitle = "Super_Mega_Nano_Ultra_Giper_Turbo_Extra_Phone";
             this.overPrice = "140%";
-            this.description = "Smart phone for retarded people!";
+            this.description = "Smart phone for retarded peoples!";
         }
 
         public void sendMessage() {
@@ -92,8 +81,18 @@
         }
 
         public static void main(String[] args) {
+            System.out.println("");
             SmartPhone retardedPhone = new SmartPhone(1243756, 99999, 1);
             retardedPhone.sendMessage();
             retardedPhone.info();
+            System.out.println("");
+            BabushkaPhone babka = new BabushkaPhone(1234, 8888, 1000, 1000, 144, "IOS");
+            babka.receiveCall("Uncle dad");
+            babka.info();
+            System.out.println("");
+            Phone justPhone = new Phone(123123, 333333, 100);
+            justPhone.getNumber();
+            justPhone.receiveCall("babka");
+            justPhone.info();
         }
     }
